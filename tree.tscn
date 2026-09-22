@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bgunnljt2fg6i"]
+
+[ext_resource type="Texture2D" uid="uid://ytyhbtiwfbmb" path="res://art/Plants/med_tree.png" id="1_brfkd"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_3r65y"]
+points = PackedVector2Array(26, -9, 2, -10, -8, 12, 40, 12)
+
+[node name="Tree" type="StaticBody2D" unique_id=732990380]
+position = Vector2(30, 42)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2128723929]
+position = Vector2(3, -65)
+scale = Vector2(1.7428572, 1.7333332)
+texture = ExtResource("1_brfkd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=546032592]
+position = Vector2(-16, 1)
+shape = SubResource("ConvexPolygonShape2D_3r65y")
