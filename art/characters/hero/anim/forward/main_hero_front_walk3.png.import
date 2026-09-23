@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0jadvyow3bo2"
-path="res://.godot/imported/main_hero_front.png-8aec356c7857dd713e1cd780b4e9fbcc.ctex"
+uid="uid://b2gbph51aihy5"
+path="res://.godot/imported/main_hero_front_walk3.png-fe3b13765dff4fc205907c1d068080ae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/characters/main_hero_front.png"
-dest_files=["res://.godot/imported/main_hero_front.png-8aec356c7857dd713e1cd780b4e9fbcc.ctex"]
+source_file="res://art/characters/hero/anim/forward/main_hero_front_walk3.png"
+dest_files=["res://.godot/imported/main_hero_front_walk3.png-fe3b13765dff4fc205907c1d068080ae.ctex"]
 
 [params]
 
