@@ -2,9 +2,16 @@ extends CharacterBody2D
 const NORMAL_SPEED = 300.0
 const SPRINT_SPEED = 400.0
 var last_direcion = ""
+var can_move = true
 
 
+@warning_ignore("unused_parameter")
 func _physics_process(delta: float) -> void:
+	if not can_move:
+		velocity = Vector2.ZERO
+		move_and_slide()
+		return
+	
 	var SPEED = NORMAL_SPEED
 	if Input.is_action_pressed("Sprint"):
 		SPEED = SPRINT_SPEED
