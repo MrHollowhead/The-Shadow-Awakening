@@ -1044,7 +1044,7 @@ offset_bottom = 147.0
 text = "Not now"
 
 [connection signal="body_entered" from="House2/Door_Hitbox" to="House2" method="_on_door_hitbox_body_entered"]
-[connection signal="body_exited" from="House2/Door_Hitbox" to="NPC" method="_on_door_hitbox_body_exited"]
+[connection signal="body_exited" from="House2/Door_Hitbox" to="House2" method="_on_door_hitbox_body_exited"]
 [connection signal="body_entered" from="House3/Door_Hitbox" to="House3" method="_on_door_hitbox_body_entered"]
 [connection signal="body_exited" from="House3/Door_Hitbox" to="House3" method="_on_door_hitbox_body_exited"]
 [connection signal="body_entered" from="House4/Door_Hitbox" to="House4" method="_on_door_hitbox_body_entered"]
