@@ -52,7 +52,9 @@
 [ext_resource type="Script" uid="uid://df2avielibqhk" path="res://house_4.gd" id="47_k3lar"]
 [ext_resource type="Script" uid="uid://x8ilowkraq5f" path="res://house_5.gd" id="48_olr1q"]
 [ext_resource type="Script" uid="uid://c8uxtowybuc3n" path="res://house_6.gd" id="49_olr1q"]
-[ext_resource type="Texture2D" uid="uid://cd3t363hirwik" path="res://NPC.png" id="53_olr1q"]
+[ext_resource type="Script" uid="uid://jrslybgwj8q6" path="res://key.gd" id="50_b7btk"]
+[ext_resource type="Texture2D" uid="uid://bmwamd3kkjv23" path="res://art/key.png" id="50_q42o5"]
+[ext_resource type="Script" uid="uid://cemdd2p6asv8d" path="res://npc.gd" id="52_q42o5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_26xuy"]
 texture = ExtResource("2_pkg7o")
@@ -275,6 +277,9 @@ size = Vector2(111, 100)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_envn2"]
 size = Vector2(31, 29)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uuhvr"]
+size = Vector2(38.5, 39)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3r65y"]
 size = Vector2(31, 705)
 
@@ -289,6 +294,12 @@ size = Vector2(1141, 23)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r2d4b"]
 size = Vector2(12, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0yirx"]
+size = Vector2(46, 64)
+
+[sub_resource type="LabelSettings" id="LabelSettings_q42o5"]
+font_size = 20
 
 [node name="World" type="Node2D" unique_id=54234571]
 y_sort_enabled = true
@@ -489,6 +500,22 @@ shape = SubResource("RectangleShape2D_hj2de")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="House6/Door_Hitbox" unique_id=1536390824]
 position = Vector2(1, 103)
 shape = SubResource("RectangleShape2D_envn2")
+
+[node name="key" type="StaticBody2D" parent="House6" unique_id=49701214]
+visible = false
+script = ExtResource("50_b7btk")
+
+[node name="Area2D" type="Area2D" parent="House6/key" unique_id=2058789504]
+monitoring = false
+
+[node name="Sprite2D" type="Sprite2D" parent="House6/key/Area2D" unique_id=1766058936]
+position = Vector2(-91, 15.999995)
+scale = Vector2(0.068627514, 0.07291675)
+texture = ExtResource("50_q42o5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="House6/key/Area2D" unique_id=718488199]
+position = Vector2(-91, 16)
+shape = SubResource("RectangleShape2D_uuhvr")
 
 [node name="Side_forest" type="Node2D" parent="." unique_id=494193268]
 z_index = 10
@@ -924,6 +951,7 @@ playback_type = 1
 
 [node name="NPC" type="StaticBody2D" parent="." unique_id=923584839]
 position = Vector2(690, 189)
+script = ExtResource("52_q42o5")
 
 [node name="Sprite2D" type="Sprite2D" parent="NPC" unique_id=2035098011]
 position = Vector2(0, -32.000004)
@@ -933,6 +961,12 @@ texture = ExtResource("47_fnoqa")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC" unique_id=1519453278]
 position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_r2d4b")
+
+[node name="NPC_int_area" type="Area2D" parent="NPC" unique_id=635743491]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/NPC_int_area" unique_id=572027058]
+position = Vector2(5, -12)
+shape = SubResource("RectangleShape2D_0yirx")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=351032663]
 
@@ -958,22 +992,59 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -117.0
+offset_left = -135.10236
 offset_top = -52.0
-offset_right = 126.79529
+offset_right = 249.0
 offset_bottom = 61.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "If you see his, something is bugged."
+text = "If you see this, something is bugged."
 vertical_alignment = 1
 
 [node name="speaker_icon" type="Sprite2D" parent="UI/DialogueBox" unique_id=784818029]
-position = Vector2(104, 76)
-scale = Vector2(6.2777777, 6.2777777)
-texture = ExtResource("53_olr1q")
+position = Vector2(58.146954, 73.61982)
+scale = Vector2(5.56107, 5.5610714)
+
+[node name="speaker_name" type="Label" parent="UI/DialogueBox" unique_id=1198848307]
+layout_mode = 0
+offset_left = 159.0
+offset_top = 3.0
+offset_right = 289.0
+offset_bottom = 31.0
+text = ">_<"
+label_settings = SubResource("LabelSettings_q42o5")
+
+[node name="name_input" type="LineEdit" parent="UI/DialogueBox" unique_id=819033202]
+visible = false
+layout_mode = 0
+offset_left = 164.0
+offset_top = 119.0
+offset_right = 552.0
+offset_bottom = 150.0
+placeholder_text = "[Enter your name]"
+max_length = 16
+emoji_menu_enabled = false
+
+[node name="yes_button" type="Button" parent="UI/DialogueBox" unique_id=1105725808]
+visible = false
+layout_mode = 0
+offset_left = 165.0
+offset_top = 114.0
+offset_right = 282.0
+offset_bottom = 148.0
+text = "Sure"
+
+[node name="no_button" type="Button" parent="UI/DialogueBox" unique_id=802901870]
+visible = false
+layout_mode = 0
+offset_left = 326.0
+offset_top = 114.0
+offset_right = 429.0
+offset_bottom = 147.0
+text = "Not now"
 
 [connection signal="body_entered" from="House2/Door_Hitbox" to="House2" method="_on_door_hitbox_body_entered"]
-[connection signal="body_exited" from="House2/Door_Hitbox" to="House2" method="_on_door_hitbox_body_exited"]
+[connection signal="body_exited" from="House2/Door_Hitbox" to="NPC" method="_on_door_hitbox_body_exited"]
 [connection signal="body_entered" from="House3/Door_Hitbox" to="House3" method="_on_door_hitbox_body_entered"]
 [connection signal="body_exited" from="House3/Door_Hitbox" to="House3" method="_on_door_hitbox_body_exited"]
 [connection signal="body_entered" from="House4/Door_Hitbox" to="House4" method="_on_door_hitbox_body_entered"]
@@ -982,3 +1053,10 @@ texture = ExtResource("53_olr1q")
 [connection signal="body_exited" from="House5/Door_Hitbox" to="House5" method="_on_door_hitbox_body_exited"]
 [connection signal="body_entered" from="House6/Door_Hitbox" to="House6" method="_on_door_hitbox_body_entered"]
 [connection signal="body_exited" from="House6/Door_Hitbox" to="House6" method="_on_door_hitbox_body_exited"]
+[connection signal="body_entered" from="House6/key/Area2D" to="House6/key" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="House6/key/Area2D" to="House6/key" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="NPC/NPC_int_area" to="NPC" method="_on_npc_int_area_body_entered"]
+[connection signal="body_exited" from="NPC/NPC_int_area" to="NPC" method="_on_npc_int_area_body_exited"]
+[connection signal="text_submitted" from="UI/DialogueBox/name_input" to="main_hero" method="_on_name_input_text_submitted"]
+[connection signal="pressed" from="UI/DialogueBox/yes_button" to="NPC" method="_on_yes_button_pressed"]
+[connection signal="pressed" from="UI/DialogueBox/no_button" to="NPC" method="_on_no_button_pressed"]
