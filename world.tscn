@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://bta5lbp6g5d22" path="res://art/tiles/grass_leafes.png" id="14_ytpkv"]
 [ext_resource type="Texture2D" uid="uid://bsolhe7obxy1w" path="res://art/characters/hero/main_hero_back.png" id="15_ikiii"]
 [ext_resource type="Texture2D" uid="uid://1t4uw4f6bcf" path="res://art/tiles/grass_mushroom.png" id="15_jas3d"]
-[ext_resource type="Texture2D" uid="uid://dgrrvppqjukdf" path="res://art/houses/haz_kocka.png" id="15_udxuc"]
+[ext_resource type="Texture2D" uid="uid://dgrrvppqjukdf" path="res://art/buildings/haz_kocka.png" id="15_udxuc"]
 [ext_resource type="Texture2D" uid="uid://bpgkjxwhq5v3h" path="res://art/characters/hero/main_hero_right.png" id="16_bc84e"]
 [ext_resource type="Texture2D" uid="uid://crquu58o57n37" path="res://art/tiles/grass_1side_leaf1.png" id="16_ruyqm"]
 [ext_resource type="Texture2D" uid="uid://cu8qgcvx0y7pj" path="res://art/tiles/grass_1side_leaf2.png" id="17_fnoqa"]
@@ -45,16 +45,16 @@
 [ext_resource type="Texture2D" uid="uid://b0fx1s4ffn8q8" path="res://art/characters/hero/anim/right/main_hero_right_walk2.png" id="31_ruyqm"]
 [ext_resource type="Texture2D" uid="uid://un3mla88hncj" path="res://art/characters/hero/anim/right/main_hero_right_walk3.png" id="32_fnoqa"]
 [ext_resource type="Texture2D" uid="uid://i0630n1ne866" path="res://art/characters/hero/anim/right/main_hero_right_walk4.png" id="33_nx736"]
-[ext_resource type="Texture2D" uid="uid://bc0iibitkdn6u" path="res://art/houses/house_roof.png" id="34_my276"]
-[ext_resource type="Script" uid="uid://7s6adowbqq67" path="res://house_2.gd" id="43_nx736"]
+[ext_resource type="Texture2D" uid="uid://bc0iibitkdn6u" path="res://art/buildings/house_roof.png" id="34_my276"]
 [ext_resource type="Script" uid="uid://d4cd3446upeao" path="res://house_3.gd" id="46_f3o6s"]
 [ext_resource type="Texture2D" uid="uid://1o43r8erjywb" path="res://art/characters/NPC1.png" id="47_fnoqa"]
-[ext_resource type="Script" uid="uid://df2avielibqhk" path="res://house_4.gd" id="47_k3lar"]
 [ext_resource type="Script" uid="uid://x8ilowkraq5f" path="res://house_5.gd" id="48_olr1q"]
 [ext_resource type="Script" uid="uid://c8uxtowybuc3n" path="res://house_6.gd" id="49_olr1q"]
 [ext_resource type="Script" uid="uid://jrslybgwj8q6" path="res://key.gd" id="50_b7btk"]
 [ext_resource type="Texture2D" uid="uid://bmwamd3kkjv23" path="res://art/key.png" id="50_q42o5"]
 [ext_resource type="Script" uid="uid://cemdd2p6asv8d" path="res://npc.gd" id="52_q42o5"]
+[ext_resource type="Texture2D" uid="uid://blllbip3srqso" path="res://art/buildings/tavern.png" id="55_b7btk"]
+[ext_resource type="Texture2D" uid="uid://c4ya3wo7kgnr6" path="res://art/buildings/table.png" id="55_kkgr2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_26xuy"]
 texture = ExtResource("2_pkg7o")
@@ -271,6 +271,21 @@ animations = [{
 "speed": 6.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1fm6h"]
+size = Vector2(399.25, 130)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75see"]
+size = Vector2(158.25, 82.25)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8desx"]
+radius = 16.03122
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_otlv5"]
+size = Vector2(70.5, 22)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3r65y"]
+radius = 15.132746
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hj2de"]
 size = Vector2(111, 100)
 
@@ -381,29 +396,77 @@ position = Vector2(0, -27.999992)
 scale = Vector2(1.2142859, 1.0714287)
 sprite_frames = SubResource("SpriteFrames_cp2t4")
 
-[node name="House2" type="StaticBody2D" parent="." unique_id=780179261]
-position = Vector2(614, 90)
-script = ExtResource("43_nx736")
+[node name="Tavern" type="StaticBody2D" parent="." unique_id=652854617]
+position = Vector2(578, 207)
 
-[node name="Roof" type="Sprite2D" parent="House2" unique_id=596169266]
-z_index = 1
-position = Vector2(1.9999835, -30.000004)
-scale = Vector2(1.3496091, 1.1468748)
-texture = ExtResource("34_my276")
+[node name="Sprite2D" type="Sprite2D" parent="Tavern" unique_id=712873871]
+position = Vector2(128.99997, -22)
+scale = Vector2(1.7057292, 1.7057292)
+texture = ExtResource("55_b7btk")
 
-[node name="Body" type="Sprite2D" parent="House2" unique_id=888477846]
-position = Vector2(2, 43)
-texture = ExtResource("15_udxuc")
+[node name="tavern_hitbox1" type="CollisionShape2D" parent="Tavern" unique_id=1691143595]
+position = Vector2(140.375, -34)
+shape = SubResource("RectangleShape2D_1fm6h")
 
-[node name="Hitbox" type="CollisionShape2D" parent="House2" unique_id=959560165]
-position = Vector2(2, 50)
-shape = SubResource("RectangleShape2D_hj2de")
+[node name="tavern_hibox2" type="CollisionShape2D" parent="Tavern" unique_id=449226406]
+position = Vector2(226.125, 60.875)
+shape = SubResource("RectangleShape2D_75see")
 
-[node name="Door_Hitbox" type="Area2D" parent="House2" unique_id=1797900036]
+[node name="pillar" type="CollisionShape2D" parent="Tavern" unique_id=1333127154]
+position = Vector2(-52.00003, 30)
+shape = SubResource("CircleShape2D_8desx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="House2/Door_Hitbox" unique_id=1672864599]
-position = Vector2(2.5, 113.5)
-shape = SubResource("RectangleShape2D_envn2")
+[node name="pillar2" type="CollisionShape2D" parent="Tavern" unique_id=951169566]
+position = Vector2(301.33334, -4.9999847)
+shape = SubResource("CircleShape2D_8desx")
+
+[node name="pillar3" type="CollisionShape2D" parent="Tavern" unique_id=734466330]
+position = Vector2(159.99997, 116.000015)
+shape = SubResource("CircleShape2D_8desx")
+
+[node name="pillar4" type="CollisionShape2D" parent="Tavern" unique_id=1203069458]
+position = Vector2(286.99997, 116.000015)
+shape = SubResource("CircleShape2D_8desx")
+
+[node name="Boxes" type="CollisionShape2D" parent="Tavern" unique_id=1045024805]
+position = Vector2(110.75, 40)
+shape = SubResource("RectangleShape2D_otlv5")
+
+[node name="table1" type="StaticBody2D" parent="." unique_id=289135193]
+position = Vector2(695, 342)
+
+[node name="Sprite2D" type="Sprite2D" parent="table1" unique_id=417976252]
+position = Vector2(0.37498975, -5.8518233)
+scale = Vector2(1.5092591, 1.5092592)
+texture = ExtResource("55_kkgr2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="table1" unique_id=1302186060]
+position = Vector2(0.375, 7.1481934)
+shape = SubResource("CircleShape2D_3r65y")
+
+[node name="table2" type="StaticBody2D" parent="." unique_id=1010351963]
+position = Vector2(668, 277)
+
+[node name="Sprite2D" type="Sprite2D" parent="table2" unique_id=291954674]
+position = Vector2(0.8749906, -1.2592483)
+scale = Vector2(1.5462961, 1.5462962)
+texture = ExtResource("55_kkgr2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="table2" unique_id=986275058]
+position = Vector2(-0.125, 8.740738)
+shape = SubResource("CircleShape2D_3r65y")
+
+[node name="table3" type="StaticBody2D" parent="." unique_id=1622338504]
+position = Vector2(630, 315)
+
+[node name="Sprite2D" type="Sprite2D" parent="table3" unique_id=921417340]
+position = Vector2(-0.62500525, -5.2963)
+scale = Vector2(1.7314816, 1.7314818)
+texture = ExtResource("55_kkgr2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="table3" unique_id=1440494876]
+position = Vector2(-0.625, 8.703705)
+shape = SubResource("CircleShape2D_3r65y")
 
 [node name="House3" type="StaticBody2D" parent="." unique_id=1842002885]
 position = Vector2(712, 527)
@@ -426,30 +489,6 @@ shape = SubResource("RectangleShape2D_hj2de")
 [node name="Door_Hitbox" type="Area2D" parent="House3" unique_id=1313615253]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="House3/Door_Hitbox" unique_id=247165663]
-position = Vector2(2.5, 113.5)
-shape = SubResource("RectangleShape2D_envn2")
-
-[node name="House4" type="StaticBody2D" parent="." unique_id=2043994501]
-position = Vector2(774, 336)
-script = ExtResource("47_k3lar")
-
-[node name="Roof" type="Sprite2D" parent="House4" unique_id=1077177432]
-z_index = 1
-position = Vector2(-1.0000153, -42.999985)
-scale = Vector2(1.3218125, 1.145266)
-texture = ExtResource("34_my276")
-
-[node name="Body" type="Sprite2D" parent="House4" unique_id=1462437591]
-position = Vector2(-0.5, 43.49997)
-texture = ExtResource("15_udxuc")
-
-[node name="Hitbox" type="CollisionShape2D" parent="House4" unique_id=1402068313]
-position = Vector2(-0.5, 50.49997)
-shape = SubResource("RectangleShape2D_hj2de")
-
-[node name="Door_Hitbox" type="Area2D" parent="House4" unique_id=209674536]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="House4/Door_Hitbox" unique_id=1298291223]
 position = Vector2(2.5, 113.5)
 shape = SubResource("RectangleShape2D_envn2")
 
@@ -927,10 +966,10 @@ position = Vector2(178, 529)
 position = Vector2(785, 98)
 
 [node name="Tree3" parent="." unique_id=1693576395 instance=ExtResource("17_udxuc")]
-position = Vector2(936, 263)
+position = Vector2(950, 164)
 
 [node name="Tree4" parent="." unique_id=1993795808 instance=ExtResource("17_udxuc")]
-position = Vector2(894, 324)
+position = Vector2(963, 445)
 
 [node name="Tree5" parent="." unique_id=1376089438 instance=ExtResource("17_udxuc")]
 position = Vector2(986, 610)
@@ -939,7 +978,7 @@ position = Vector2(986, 610)
 position = Vector2(851, 538)
 
 [node name="Tree7" parent="." unique_id=1148646850 instance=ExtResource("17_udxuc")]
-position = Vector2(945, 77)
+position = Vector2(984, 78)
 
 [node name="Tree8" parent="." unique_id=847065926 instance=ExtResource("17_udxuc")]
 position = Vector2(208, 173)
@@ -950,7 +989,7 @@ autoplay = true
 playback_type = 1
 
 [node name="NPC" type="StaticBody2D" parent="." unique_id=923584839]
-position = Vector2(690, 189)
+position = Vector2(902, 300)
 script = ExtResource("52_q42o5")
 
 [node name="Sprite2D" type="Sprite2D" parent="NPC" unique_id=2035098011]
@@ -1043,12 +1082,8 @@ offset_right = 429.0
 offset_bottom = 147.0
 text = "Not now"
 
-[connection signal="body_entered" from="House2/Door_Hitbox" to="House2" method="_on_door_hitbox_body_entered"]
-[connection signal="body_exited" from="House2/Door_Hitbox" to="House2" method="_on_door_hitbox_body_exited"]
 [connection signal="body_entered" from="House3/Door_Hitbox" to="House3" method="_on_door_hitbox_body_entered"]
 [connection signal="body_exited" from="House3/Door_Hitbox" to="House3" method="_on_door_hitbox_body_exited"]
-[connection signal="body_entered" from="House4/Door_Hitbox" to="House4" method="_on_door_hitbox_body_entered"]
-[connection signal="body_exited" from="House4/Door_Hitbox" to="House4" method="_on_door_hitbox_body_exited"]
 [connection signal="body_entered" from="House5/Door_Hitbox" to="House5" method="_on_door_hitbox_body_entered"]
 [connection signal="body_exited" from="House5/Door_Hitbox" to="House5" method="_on_door_hitbox_body_exited"]
 [connection signal="body_entered" from="House6/Door_Hitbox" to="House6" method="_on_door_hitbox_body_entered"]

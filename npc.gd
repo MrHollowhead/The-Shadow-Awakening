@@ -10,8 +10,6 @@ var quest_declined = false
 func _process(delta: float) -> void:
 	if $"../UI/DialogueBox/name_input".has_focus():
 		return
-	if player_here:
-		print(quest_state)
 	if player_here == true and Input.is_action_just_pressed("Interaction") and end_of_dialogue == false:
 		if dialogue_state == 0:
 			$"../main_hero".can_move = false

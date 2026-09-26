@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="gameszko"
+config/name="The Shadow Awakening"
 run/main_scene="uid://bdadliklcd714"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"

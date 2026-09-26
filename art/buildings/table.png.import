@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgrrvppqjukdf"
-path="res://.godot/imported/haz_kocka.png-779676af49f3ad81b51e9d83e432c670.ctex"
+uid="uid://c4ya3wo7kgnr6"
+path="res://.godot/imported/table.png-48819c940285e1ca8d7717e46bac936e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/houses/haz_kocka.png"
-dest_files=["res://.godot/imported/haz_kocka.png-779676af49f3ad81b51e9d83e432c670.ctex"]
+source_file="res://art/buildings/table.png"
+dest_files=["res://.godot/imported/table.png-48819c940285e1ca8d7717e46bac936e.ctex"]
 
 [params]
 

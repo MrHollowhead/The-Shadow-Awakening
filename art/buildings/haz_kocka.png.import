@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dk160dmrt7j10"
-path="res://.godot/imported/hazteto.png-076ceea713e4de9c139607438b21dcfc.ctex"
+uid="uid://dgrrvppqjukdf"
+path="res://.godot/imported/haz_kocka.png-1e164816e1a732edd7ee84a137c1efee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/houses/hazteto.png"
-dest_files=["res://.godot/imported/hazteto.png-076ceea713e4de9c139607438b21dcfc.ctex"]
+source_file="res://art/buildings/haz_kocka.png"
+dest_files=["res://.godot/imported/haz_kocka.png-1e164816e1a732edd7ee84a137c1efee.ctex"]
 
 [params]
 
