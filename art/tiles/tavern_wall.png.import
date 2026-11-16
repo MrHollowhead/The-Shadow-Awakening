@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4m4j3j4hshjl"
-path="res://.godot/imported/hazteto.png-7cf61c668d59bb9b9598e0072ba4ff71.ctex"
+uid="uid://dwq257gw5duwy"
+path="res://.godot/imported/tavern_wall.png-6531fb307134309756da6d3b9f89cfd3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/tiles/hazteto.png"
-dest_files=["res://.godot/imported/hazteto.png-7cf61c668d59bb9b9598e0072ba4ff71.ctex"]
+source_file="res://art/tiles/tavern_wall.png"
+dest_files=["res://.godot/imported/tavern_wall.png-6531fb307134309756da6d3b9f89cfd3.ctex"]
 
 [params]
 

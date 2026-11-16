@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpk01ex1u0pm5"
-path="res://.godot/imported/haz_kocka.png-c434238b76a9ec302008e6ad8b6ec4ec.ctex"
+uid="uid://dxku754wlidtw"
+path="res://.godot/imported/tavern_floor.png-7edb36337018412b4d390422bd8fbaff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/tiles/haz_kocka.png"
-dest_files=["res://.godot/imported/haz_kocka.png-c434238b76a9ec302008e6ad8b6ec4ec.ctex"]
+source_file="res://art/tiles/tavern_floor.png"
+dest_files=["res://.godot/imported/tavern_floor.png-7edb36337018412b4d390422bd8fbaff.ctex"]
 
 [params]
 

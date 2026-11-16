@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="QuestData" format=3 uid="uid://x5x61gxy8qwp"]
+
+[ext_resource type="Script" uid="uid://1xvcf78kbqtm" path="res://Scripts/quests/quest_data.gd" id="1_y87fm"]
+
+[resource]
+script = ExtResource("1_y87fm")
+quest_id = "kyrt_key"
+quest_name = "Find Kyrt's Key"
+description = "	Help Kyrt find his missing key."
+objectives = Array[String](["Find the missing key"])
+metadata/_custom_type_script = "uid://1xvcf78kbqtm"
