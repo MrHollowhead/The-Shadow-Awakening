@@ -982,22 +982,22 @@ stream = ExtResource("54_mbf3w")
 autoplay = true
 playback_type = 1
 
-[node name="NPC" type="StaticBody2D" parent="." unique_id=923584839]
+[node name="Kyrt" type="StaticBody2D" parent="." unique_id=923584839]
 position = Vector2(902, 300)
 script = ExtResource("55_8ftdj")
 
-[node name="Sprite2D" type="Sprite2D" parent="NPC" unique_id=2035098011]
+[node name="Sprite2D" type="Sprite2D" parent="Kyrt" unique_id=2035098011]
 position = Vector2(0, -32.000004)
 scale = Vector2(1.0714285, 1.0714285)
 texture = ExtResource("56_fv0bq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC" unique_id=1519453278]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kyrt" unique_id=1519453278]
 position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_r2d4b")
 
-[node name="NPC_int_area" type="Area2D" parent="NPC" unique_id=635743491]
+[node name="NPC_int_area" type="Area2D" parent="Kyrt" unique_id=635743491]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/NPC_int_area" unique_id=572027058]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kyrt/NPC_int_area" unique_id=572027058]
 position = Vector2(5, -12)
 shape = SubResource("RectangleShape2D_0yirx")
 
@@ -1104,8 +1104,8 @@ shape = SubResource("SegmentShape2D_3r65y")
 [connection signal="body_exited" from="House6/Door_Hitbox" to="House6" method="_on_door_hitbox_body_exited"]
 [connection signal="body_entered" from="House6/key/Area2D" to="House6/key" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="House6/key/Area2D" to="House6/key" method="_on_area_2d_body_exited"]
-[connection signal="body_entered" from="NPC/NPC_int_area" to="NPC" method="_on_npc_int_area_body_entered"]
-[connection signal="body_exited" from="NPC/NPC_int_area" to="NPC" method="_on_npc_int_area_body_exited"]
+[connection signal="body_entered" from="Kyrt/NPC_int_area" to="Kyrt" method="_on_npc_int_area_body_entered"]
+[connection signal="body_exited" from="Kyrt/NPC_int_area" to="Kyrt" method="_on_npc_int_area_body_exited"]
 [connection signal="text_submitted" from="UI/DialogueBox/name_input" to="main_hero" method="_on_name_input_text_submitted"]
-[connection signal="pressed" from="UI/DialogueBox/yes_button" to="NPC" method="_on_yes_button_pressed"]
-[connection signal="pressed" from="UI/DialogueBox/no_button" to="NPC" method="_on_no_button_pressed"]
+[connection signal="pressed" from="UI/DialogueBox/yes_button" to="Kyrt" method="_on_yes_button_pressed"]
+[connection signal="pressed" from="UI/DialogueBox/no_button" to="Kyrt" method="_on_no_button_pressed"]
