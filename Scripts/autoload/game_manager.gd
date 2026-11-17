@@ -1,5 +1,6 @@
 extends Node
 
+var player_spawn_position = "InitialSpawn"
 var quest_states = {}
 var conv_states = {}
 var quest_definitions = {}
@@ -12,6 +13,9 @@ func make_quest_available(quest_id: String) -> void:
 				"stage": 0,
 				"completed_objectives": []
 			}
+
+func set_player_spawn_position(spawn_name: String) -> void:
+	player_spawn_position = spawn_name
 
 func start_quest(quest_id: String) -> void:
 	if not quest_states.has(quest_id):

@@ -5,12 +5,29 @@ var end_of_dialogue = false
 var submitted_name = false
 var quest_state = 0
 var quest_declined = false
+var locked = true
+
 
 
 func _process(delta: float) -> void:
+	if end_of_dialogue == true and Input.is_action_just_pressed("Interaction"):
+		$"../UI/DialogueBox".hide()
+		$"../main_hero".can_move = true
+		$"../UI/DialogueBox/yes_button".hide()
+		$"../UI/DialogueBox/no_button".hide()
+		end_of_dialogue = false
+
+	elif player_here == true and Input.is_action_just_pressed("Interaction"):
+		$"../main_hero".can_move = false
+		$"../UI/DialogueBox/speaker_name".text = "Developer"
+		$"../UI/DialogueBox/speaker_icon".texture = preload("res://art/characters/developer.png")
+		$"../UI/DialogueBox/Label".text = "Sorry under development ^_^"
+		$"../UI/DialogueBox".show()
+		end_of_dialogue = true
+	
 	if $"../UI/DialogueBox/name_input".has_focus():
 		return
-	if player_here == true and Input.is_action_just_pressed("Interaction") and end_of_dialogue == false:
+	if player_here == true and Input.is_action_just_pressed("Interaction") and end_of_dialogue == false and not locked:
 		if dialogue_state == 0:
 			$"../main_hero".can_move = false
 			$"../UI/DialogueBox/speaker_name".text = "Villager"
@@ -83,12 +100,7 @@ func _process(delta: float) -> void:
 			end_of_dialogue = true
 		
 	
-	if end_of_dialogue == true and Input.is_action_just_pressed("Interaction"):
-		$"../UI/DialogueBox".hide()
-		$"../main_hero".can_move = true
-		end_of_dialogue = false
-		$"../UI/DialogueBox/yes_button".hide()
-		$"../UI/DialogueBox/no_button".hide()
+
 		
 func _on_npc_int_area_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:

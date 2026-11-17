@@ -4,3 +4,5 @@
 .editorconfig
 .gitattributes
 export_presets
+*.exe
+*.pck

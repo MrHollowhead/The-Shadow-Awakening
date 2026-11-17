@@ -24,7 +24,15 @@
 [ext_resource type="Texture2D" uid="uid://un3mla88hncj" path="res://art/characters/hero/anim/right/main_hero_right_walk3.png" id="21_qk4b1"]
 [ext_resource type="Texture2D" uid="uid://i0630n1ne866" path="res://art/characters/hero/anim/right/main_hero_right_walk4.png" id="22_7l4l6"]
 [ext_resource type="Texture2D" uid="uid://dwq257gw5duwy" path="res://art/tiles/tavern_wall.png" id="23_f6hcf"]
-[ext_resource type="Texture2D" uid="uid://dhqf41uqg1exo" path="res://art/buildings/tavern_wall_top.png" id="24_r55xf"]
+[ext_resource type="Texture2D" uid="uid://dhqf41uqg1exo" path="res://art/buildings/tavern/tavern_wall_top.png" id="24_r55xf"]
+[ext_resource type="Texture2D" uid="uid://cesk1m5cop53q" path="res://art/buildings/tavern/tavern_door.png" id="26_2r0dx"]
+[ext_resource type="Script" uid="uid://n5ioic52qsih" path="res://Scripts/door.gd" id="26_80vts"]
+[ext_resource type="Texture2D" uid="uid://7atfsqsrllm8" path="res://art/misc/furnitures/round_table_inside.png" id="28_3hfg7"]
+[ext_resource type="Texture2D" uid="uid://cx06gu7rfxkeh" path="res://art/misc/furnitures/dining_table.png" id="29_nk0no"]
+[ext_resource type="Texture2D" uid="uid://b2rki46anxlyt" path="res://art/misc/furnitures/chair_back.png" id="30_y27ns"]
+[ext_resource type="Texture2D" uid="uid://dqed0m8p2b0mr" path="res://art/misc/furnitures/chair_right.png" id="31_qexfy"]
+[ext_resource type="Texture2D" uid="uid://r76ie6h5m1ji" path="res://art/misc/furnitures/chair_left.png" id="32_c3ylr"]
+[ext_resource type="AudioStream" uid="uid://rcg7xramlhls" path="res://audio/music/Tavern_Music.wav" id="33_c3ylr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t7k2r"]
 texture = ExtResource("1_2gg87")
@@ -155,7 +163,22 @@ b = Vector2(418, -631)
 a = Vector2(287, -223)
 b = Vector2(417, -223)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8desx"]
+size = Vector2(57, 27)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g44x5"]
+radius = 12.789156
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3r65y"]
+size = Vector2(93, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hj2de"]
+size = Vector2(25, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cp2t4"]
+
 [node name="Tavern_interior" type="Node2D" unique_id=234898642]
+y_sort_enabled = true
 script = ExtResource("1_r55xf")
 
 [node name="Floor" type="TileMapLayer" parent="." unique_id=922352500]
@@ -316,5 +339,384 @@ rotation = 1.5707964
 scale = Vector2(6.287651, 1)
 texture = ExtResource("24_r55xf")
 
-[node name="PlayerSpawn" type="Marker2D" parent="." unique_id=1099732811]
+[node name="TavernInsideSpawn" type="Marker2D" parent="." unique_id=1099732811]
 position = Vector2(879, 630)
+
+[node name="Door" type="StaticBody2D" parent="." unique_id=121690560]
+position = Vector2(880, 646)
+script = ExtResource("26_80vts")
+
+[node name="Sprite2D" type="Sprite2D" parent="Door" unique_id=1466685160]
+position = Vector2(0.5, -1)
+scale = Vector2(1.53125, 0.9166667)
+texture = ExtResource("26_2r0dx")
+
+[node name="ExitArea" type="Area2D" parent="Door" unique_id=2097827205]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/ExitArea" unique_id=395128240]
+position = Vector2(0.5, -16.5)
+shape = SubResource("RectangleShape2D_8desx")
+
+[node name="DrinkTable" type="StaticBody2D" parent="." unique_id=1782437634]
+position = Vector2(276, 417)
+
+[node name="Sprite2D" type="Sprite2D" parent="DrinkTable" unique_id=1527025932]
+position = Vector2(0.25, -5)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("28_3hfg7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DrinkTable" unique_id=998772861]
+position = Vector2(0.25, 4)
+shape = SubResource("CircleShape2D_g44x5")
+
+[node name="DrinkTable2" type="StaticBody2D" parent="." unique_id=291445963]
+position = Vector2(365, 352)
+
+[node name="Sprite2D" type="Sprite2D" parent="DrinkTable2" unique_id=26267642]
+position = Vector2(0.25, -5)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("28_3hfg7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DrinkTable2" unique_id=834056432]
+position = Vector2(0.25, 4)
+shape = SubResource("CircleShape2D_g44x5")
+
+[node name="DrinkTable3" type="StaticBody2D" parent="." unique_id=1713616433]
+position = Vector2(457, 423)
+
+[node name="Sprite2D" type="Sprite2D" parent="DrinkTable3" unique_id=437391109]
+position = Vector2(0.25, -5)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("28_3hfg7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DrinkTable3" unique_id=787225647]
+position = Vector2(0.25, 4)
+shape = SubResource("CircleShape2D_g44x5")
+
+[node name="DrinkTable4" type="StaticBody2D" parent="." unique_id=380138914]
+position = Vector2(273, 279)
+
+[node name="Sprite2D" type="Sprite2D" parent="DrinkTable4" unique_id=1800069488]
+position = Vector2(0.25, -5)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("28_3hfg7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DrinkTable4" unique_id=1451831595]
+position = Vector2(0.25, 4)
+shape = SubResource("CircleShape2D_g44x5")
+
+[node name="DrinkTable5" type="StaticBody2D" parent="." unique_id=2131981334]
+position = Vector2(361, 210)
+
+[node name="Sprite2D" type="Sprite2D" parent="DrinkTable5" unique_id=1204951080]
+position = Vector2(0.25, -5)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("28_3hfg7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DrinkTable5" unique_id=2097544558]
+position = Vector2(0.25, 4)
+shape = SubResource("CircleShape2D_g44x5")
+
+[node name="DrinkTable6" type="StaticBody2D" parent="." unique_id=2030903518]
+position = Vector2(453, 275)
+
+[node name="Sprite2D" type="Sprite2D" parent="DrinkTable6" unique_id=1282376965]
+position = Vector2(0.25, -5)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("28_3hfg7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DrinkTable6" unique_id=465780196]
+position = Vector2(0.25, 4)
+shape = SubResource("CircleShape2D_g44x5")
+
+[node name="DrinkTable7" type="StaticBody2D" parent="." unique_id=1618944991]
+position = Vector2(40, 201)
+
+[node name="Sprite2D" type="Sprite2D" parent="DrinkTable7" unique_id=502274496]
+position = Vector2(0.25, -5)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("28_3hfg7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DrinkTable7" unique_id=262820503]
+position = Vector2(0.25, 4)
+shape = SubResource("CircleShape2D_g44x5")
+
+[node name="DrinkTable8" type="StaticBody2D" parent="." unique_id=930705923]
+position = Vector2(45, 350)
+
+[node name="Sprite2D" type="Sprite2D" parent="DrinkTable8" unique_id=26115980]
+position = Vector2(0.25, -5)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("28_3hfg7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DrinkTable8" unique_id=517171494]
+position = Vector2(0.25, 4)
+shape = SubResource("CircleShape2D_g44x5")
+
+[node name="DrinkTable9" type="StaticBody2D" parent="." unique_id=367454019]
+position = Vector2(111, 281)
+
+[node name="Sprite2D" type="Sprite2D" parent="DrinkTable9" unique_id=1745027129]
+position = Vector2(0.25, -5)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("28_3hfg7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DrinkTable9" unique_id=1562794586]
+position = Vector2(0.25, 4)
+shape = SubResource("CircleShape2D_g44x5")
+
+[node name="DrinkTable10" type="StaticBody2D" parent="." unique_id=1659504381]
+position = Vector2(189, 211)
+
+[node name="Sprite2D" type="Sprite2D" parent="DrinkTable10" unique_id=1606310477]
+position = Vector2(0.25, -5)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("28_3hfg7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DrinkTable10" unique_id=459529776]
+position = Vector2(0.25, 4)
+shape = SubResource("CircleShape2D_g44x5")
+
+[node name="DrinkTable11" type="StaticBody2D" parent="." unique_id=539108591]
+position = Vector2(193, 352)
+
+[node name="Sprite2D" type="Sprite2D" parent="DrinkTable11" unique_id=272847110]
+position = Vector2(0.25, -5)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("28_3hfg7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DrinkTable11" unique_id=4413354]
+position = Vector2(0.25, 4)
+shape = SubResource("CircleShape2D_g44x5")
+
+[node name="DineTable" type="StaticBody2D" parent="." unique_id=1618158624]
+y_sort_enabled = true
+position = Vector2(58, 94)
+
+[node name="Sprite2D" type="Sprite2D" parent="DineTable" unique_id=1638045126]
+position = Vector2(3.8146973e-06, -18)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("29_nk0no")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DineTable" unique_id=1913016286]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_3r65y")
+
+[node name="ChairBack" type="StaticBody2D" parent="DineTable" unique_id=477103237]
+
+[node name="Sprite2D" type="Sprite2D" parent="DineTable/ChairBack" unique_id=374342674]
+position = Vector2(-23, 4)
+texture = ExtResource("30_y27ns")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DineTable/ChairBack" unique_id=1928510437]
+position = Vector2(-23, 2)
+shape = SubResource("RectangleShape2D_hj2de")
+
+[node name="ChairRight" type="StaticBody2D" parent="DineTable" unique_id=2012171362]
+y_sort_enabled = true
+position = Vector2(52, -16)
+
+[node name="Sprite2D" type="Sprite2D" parent="DineTable/ChairRight" unique_id=1209665029]
+position = Vector2(4.200001, -4.800003)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("31_qexfy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DineTable/ChairRight" unique_id=1721201465]
+position = Vector2(0.20000076, 0.19999695)
+shape = SubResource("RectangleShape2D_hj2de")
+
+[node name="ChairBack2" type="StaticBody2D" parent="DineTable" unique_id=1318344634]
+position = Vector2(38, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="DineTable/ChairBack2" unique_id=139467514]
+position = Vector2(-23, 4)
+texture = ExtResource("30_y27ns")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DineTable/ChairBack2" unique_id=543337295]
+position = Vector2(-23, 2)
+shape = SubResource("RectangleShape2D_hj2de")
+
+[node name="DineTable2" type="StaticBody2D" parent="." unique_id=1400275469]
+y_sort_enabled = true
+position = Vector2(214, 94)
+
+[node name="Sprite2D" type="Sprite2D" parent="DineTable2" unique_id=873774155]
+position = Vector2(3.8146973e-06, -18)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("29_nk0no")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DineTable2" unique_id=1220660141]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_3r65y")
+
+[node name="ChairBack" type="StaticBody2D" parent="DineTable2" unique_id=1574583388]
+
+[node name="Sprite2D" type="Sprite2D" parent="DineTable2/ChairBack" unique_id=126685965]
+position = Vector2(-23, 4)
+texture = ExtResource("30_y27ns")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DineTable2/ChairBack" unique_id=627855682]
+position = Vector2(-23, 2)
+shape = SubResource("RectangleShape2D_hj2de")
+
+[node name="ChairRight" type="StaticBody2D" parent="DineTable2" unique_id=572959563]
+y_sort_enabled = true
+position = Vector2(52, -16)
+
+[node name="Sprite2D" type="Sprite2D" parent="DineTable2/ChairRight" unique_id=1455084972]
+position = Vector2(4.200001, -4.800003)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("31_qexfy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DineTable2/ChairRight" unique_id=440731052]
+position = Vector2(0.20000076, 0.19999695)
+shape = SubResource("RectangleShape2D_hj2de")
+
+[node name="ChairBack2" type="StaticBody2D" parent="DineTable2" unique_id=859310701]
+position = Vector2(38, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="DineTable2/ChairBack2" unique_id=804768815]
+position = Vector2(-23, 4)
+texture = ExtResource("30_y27ns")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DineTable2/ChairBack2" unique_id=1015630138]
+position = Vector2(-23, 2)
+shape = SubResource("RectangleShape2D_hj2de")
+
+[node name="ChairLeft" type="StaticBody2D" parent="DineTable2" unique_id=632590159]
+position = Vector2(-49, -21)
+
+[node name="Sprite2D" type="Sprite2D" parent="DineTable2/ChairLeft" unique_id=1684927912]
+y_sort_enabled = true
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("32_c3ylr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DineTable2/ChairLeft" unique_id=1239084963]
+position = Vector2(-6, 5)
+shape = SubResource("RectangleShape2D_cp2t4")
+
+[node name="DineTable3" type="StaticBody2D" parent="." unique_id=1502712813]
+y_sort_enabled = true
+position = Vector2(362, 94)
+
+[node name="Sprite2D" type="Sprite2D" parent="DineTable3" unique_id=1871333551]
+position = Vector2(3.8146973e-06, -18)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("29_nk0no")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DineTable3" unique_id=1102982756]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_3r65y")
+
+[node name="ChairBack" type="StaticBody2D" parent="DineTable3" unique_id=1290446348]
+
+[node name="Sprite2D" type="Sprite2D" parent="DineTable3/ChairBack" unique_id=1213931673]
+position = Vector2(-23, 4)
+texture = ExtResource("30_y27ns")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DineTable3/ChairBack" unique_id=1244097707]
+position = Vector2(-23, 2)
+shape = SubResource("RectangleShape2D_hj2de")
+
+[node name="ChairRight" type="StaticBody2D" parent="DineTable3" unique_id=1246708556]
+y_sort_enabled = true
+position = Vector2(52, -16)
+
+[node name="Sprite2D" type="Sprite2D" parent="DineTable3/ChairRight" unique_id=271017910]
+position = Vector2(4.200001, -4.800003)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("31_qexfy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DineTable3/ChairRight" unique_id=1787188456]
+position = Vector2(0.20000076, 0.19999695)
+shape = SubResource("RectangleShape2D_hj2de")
+
+[node name="ChairBack2" type="StaticBody2D" parent="DineTable3" unique_id=1935356230]
+position = Vector2(38, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="DineTable3/ChairBack2" unique_id=870981175]
+position = Vector2(-23, 4)
+texture = ExtResource("30_y27ns")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DineTable3/ChairBack2" unique_id=1205393359]
+position = Vector2(-23, 2)
+shape = SubResource("RectangleShape2D_hj2de")
+
+[node name="ChairLeft" type="StaticBody2D" parent="DineTable3" unique_id=821510063]
+position = Vector2(-49, -21)
+
+[node name="Sprite2D" type="Sprite2D" parent="DineTable3/ChairLeft" unique_id=1060319632]
+y_sort_enabled = true
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("32_c3ylr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DineTable3/ChairLeft" unique_id=305719231]
+position = Vector2(-6, 5)
+shape = SubResource("RectangleShape2D_cp2t4")
+
+[node name="DineTable4" type="StaticBody2D" parent="." unique_id=436668516]
+y_sort_enabled = true
+position = Vector2(510, 94)
+
+[node name="Sprite2D" type="Sprite2D" parent="DineTable4" unique_id=176769684]
+position = Vector2(3.8146973e-06, -18)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("29_nk0no")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DineTable4" unique_id=1715951776]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_3r65y")
+
+[node name="ChairBack" type="StaticBody2D" parent="DineTable4" unique_id=1128048566]
+
+[node name="Sprite2D" type="Sprite2D" parent="DineTable4/ChairBack" unique_id=1829714259]
+position = Vector2(-23, 4)
+texture = ExtResource("30_y27ns")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DineTable4/ChairBack" unique_id=472040628]
+position = Vector2(-23, 2)
+shape = SubResource("RectangleShape2D_hj2de")
+
+[node name="ChairRight" type="StaticBody2D" parent="DineTable4" unique_id=672590916]
+y_sort_enabled = true
+position = Vector2(52, -16)
+
+[node name="Sprite2D" type="Sprite2D" parent="DineTable4/ChairRight" unique_id=1605639757]
+position = Vector2(4.200001, -4.800003)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("31_qexfy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DineTable4/ChairRight" unique_id=1364907626]
+position = Vector2(0.20000076, 0.19999695)
+shape = SubResource("RectangleShape2D_hj2de")
+
+[node name="ChairBack2" type="StaticBody2D" parent="DineTable4" unique_id=1108491430]
+position = Vector2(38, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="DineTable4/ChairBack2" unique_id=1383979274]
+position = Vector2(-23, 4)
+texture = ExtResource("30_y27ns")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DineTable4/ChairBack2" unique_id=408053292]
+position = Vector2(-23, 2)
+shape = SubResource("RectangleShape2D_hj2de")
+
+[node name="ChairLeft" type="StaticBody2D" parent="DineTable4" unique_id=1187097552]
+position = Vector2(-49, -21)
+
+[node name="Sprite2D" type="Sprite2D" parent="DineTable4/ChairLeft" unique_id=1613020044]
+y_sort_enabled = true
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("32_c3ylr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DineTable4/ChairLeft" unique_id=2011174185]
+position = Vector2(-6, 5)
+shape = SubResource("RectangleShape2D_cp2t4")
+
+[node name="TavernMusic" type="AudioStreamPlayer2D" parent="." unique_id=2043686047]
+stream = ExtResource("33_c3ylr")
+autoplay = true
+playback_type = 1
+
+[connection signal="body_entered" from="Door/ExitArea" to="Door" method="_on_exit_area_body_entered"]
+[connection signal="body_exited" from="Door/ExitArea" to="Door" method="_on_exit_area_body_exited"]

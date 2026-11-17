@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://bdadliklcd714"]
 
+[ext_resource type="Script" uid="uid://dfana1g480l80" path="res://Scripts/world.gd" id="1_g44x5"]
 [ext_resource type="Texture2D" uid="uid://dll3jg12vs7ic" path="res://art/tiles/dirt_full.png" id="1_vhf2b"]
 [ext_resource type="Texture2D" uid="uid://kbk1ipqqiuwt" path="res://art/tiles/dirt_mix_grass_h.png" id="2_g44x5"]
 [ext_resource type="Texture2D" uid="uid://h3y6dcuxn3ms" path="res://art/tiles/grass_mix_dirt_h.png" id="3_kwnki"]
@@ -43,17 +44,17 @@
 [ext_resource type="Texture2D" uid="uid://un3mla88hncj" path="res://art/characters/hero/anim/right/main_hero_right_walk3.png" id="41_svj78"]
 [ext_resource type="Texture2D" uid="uid://i0630n1ne866" path="res://art/characters/hero/anim/right/main_hero_right_walk4.png" id="42_qrg23"]
 [ext_resource type="Script" uid="uid://b2xoqsbwh4mbs" path="res://Scripts/tavern.gd" id="43_355yf"]
-[ext_resource type="Texture2D" uid="uid://blllbip3srqso" path="res://art/buildings/tavern.png" id="44_4ke1i"]
-[ext_resource type="Texture2D" uid="uid://c4ya3wo7kgnr6" path="res://art/buildings/table.png" id="45_p22x6"]
+[ext_resource type="Texture2D" uid="uid://blllbip3srqso" path="res://art/buildings/tavern/tavern.png" id="44_4ke1i"]
+[ext_resource type="Texture2D" uid="uid://c4ya3wo7kgnr6" path="res://art/misc/furnitures/round_table_outside.png" id="45_p22x6"]
 [ext_resource type="Script" uid="uid://d4cd3446upeao" path="res://Scripts/house_3.gd" id="46_3p0mr"]
 [ext_resource type="Texture2D" uid="uid://bc0iibitkdn6u" path="res://art/buildings/house_roof.png" id="47_wmw5w"]
 [ext_resource type="Texture2D" uid="uid://dgrrvppqjukdf" path="res://art/buildings/haz_kocka.png" id="48_d43ui"]
 [ext_resource type="Script" uid="uid://x8ilowkraq5f" path="res://Scripts/house_5.gd" id="49_73ltt"]
 [ext_resource type="Script" uid="uid://c8uxtowybuc3n" path="res://Scripts/house_6.gd" id="50_im3sq"]
 [ext_resource type="Script" uid="uid://jrslybgwj8q6" path="res://Scripts/key.gd" id="51_5ivla"]
-[ext_resource type="Texture2D" uid="uid://bmwamd3kkjv23" path="res://art/key.png" id="52_5yf44"]
+[ext_resource type="Texture2D" uid="uid://bmwamd3kkjv23" path="res://art/misc/key.png" id="52_5yf44"]
 [ext_resource type="PackedScene" uid="uid://bgunnljt2fg6i" path="res://Scenes/tree.tscn" id="53_u4nag"]
-[ext_resource type="AudioStream" uid="uid://fecq00n4k13i" path="res://music/rák_zene_1_demo.wav" id="54_mbf3w"]
+[ext_resource type="AudioStream" uid="uid://dqohwf4nq4b1h" path="res://audio/music/rák_zene_1_demo.wav" id="54_mbf3w"]
 [ext_resource type="Script" uid="uid://cemdd2p6asv8d" path="res://Scripts/npc.gd" id="55_8ftdj"]
 [ext_resource type="Texture2D" uid="uid://1o43r8erjywb" path="res://art/characters/NPC1.png" id="56_fv0bq"]
 
@@ -288,13 +289,13 @@ size = Vector2(70.5, 22)
 size = Vector2(56, 47)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3r65y"]
-radius = 15.132746
+radius = 14.565182
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hj2de"]
-size = Vector2(111, 100)
+size = Vector2(126, 71.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_envn2"]
-size = Vector2(31, 29)
+size = Vector2(31, 41.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uuhvr"]
 size = Vector2(38.5, 39)
@@ -318,6 +319,7 @@ b = Vector2(-517, 354)
 
 [node name="Village" type="Node2D" unique_id=54234571]
 y_sort_enabled = true
+script = ExtResource("1_g44x5")
 
 [node name="Ground" type="TileMapLayer" parent="." unique_id=490639868]
 z_index = -1
@@ -439,19 +441,16 @@ shape = SubResource("RectangleShape2D_otlv5")
 position = Vector2(225, 109.5)
 shape = SubResource("RectangleShape2D_nsvfm")
 
-[node name="TavernSpawm" type="Marker2D" parent="Tavern" unique_id=868058500]
-position = Vector2(223, 122)
-
 [node name="table1" type="StaticBody2D" parent="." unique_id=289135193]
 position = Vector2(695, 342)
 
 [node name="Sprite2D" type="Sprite2D" parent="table1" unique_id=417976252]
 position = Vector2(0.37498975, -5.8518233)
-scale = Vector2(1.5092591, 1.5092592)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("45_p22x6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="table1" unique_id=1302186060]
-position = Vector2(0.375, 7.1481934)
+position = Vector2(1, 4)
 shape = SubResource("CircleShape2D_3r65y")
 
 [node name="table2" type="StaticBody2D" parent="." unique_id=1010351963]
@@ -459,11 +458,11 @@ position = Vector2(668, 277)
 
 [node name="Sprite2D" type="Sprite2D" parent="table2" unique_id=291954674]
 position = Vector2(0.8749906, -1.2592483)
-scale = Vector2(1.5462961, 1.5462962)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("45_p22x6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="table2" unique_id=986275058]
-position = Vector2(-0.125, 8.740738)
+position = Vector2(1, 9.000015)
 shape = SubResource("CircleShape2D_3r65y")
 
 [node name="table3" type="StaticBody2D" parent="." unique_id=1622338504]
@@ -471,15 +470,15 @@ position = Vector2(630, 315)
 
 [node name="Sprite2D" type="Sprite2D" parent="table3" unique_id=921417340]
 position = Vector2(-0.62500525, -5.2963)
-scale = Vector2(1.7314816, 1.7314818)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("45_p22x6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="table3" unique_id=1440494876]
-position = Vector2(-0.625, 8.703705)
+position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_3r65y")
 
 [node name="House3" type="StaticBody2D" parent="." unique_id=1842002885]
-position = Vector2(712, 527)
+position = Vector2(722, 522)
 script = ExtResource("46_3p0mr")
 
 [node name="Roof" type="Sprite2D" parent="House3" unique_id=1443464775]
@@ -493,13 +492,13 @@ position = Vector2(2, 43)
 texture = ExtResource("48_d43ui")
 
 [node name="Hitbox" type="CollisionShape2D" parent="House3" unique_id=1417635416]
-position = Vector2(2, 50)
+position = Vector2(3, 49)
 shape = SubResource("RectangleShape2D_hj2de")
 
 [node name="Door_Hitbox" type="Area2D" parent="House3" unique_id=1313615253]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="House3/Door_Hitbox" unique_id=247165663]
-position = Vector2(2.5, 113.5)
+position = Vector2(2.5, 97.5)
 shape = SubResource("RectangleShape2D_envn2")
 
 [node name="House5" type="StaticBody2D" parent="." unique_id=387423654]
@@ -517,13 +516,13 @@ position = Vector2(-0.5, 43.49997)
 texture = ExtResource("48_d43ui")
 
 [node name="Hitbox" type="CollisionShape2D" parent="House5" unique_id=74885825]
-position = Vector2(-0.5, 50.49997)
+position = Vector2(-0.5, 49.75)
 shape = SubResource("RectangleShape2D_hj2de")
 
 [node name="Door_Hitbox" type="Area2D" parent="House5" unique_id=1823159774]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="House5/Door_Hitbox" unique_id=1255644132]
-position = Vector2(2.5, 113.5)
+position = Vector2(0, 108)
 shape = SubResource("RectangleShape2D_envn2")
 
 [node name="House6" type="StaticBody2D" parent="." unique_id=1587184346]
@@ -547,7 +546,7 @@ shape = SubResource("RectangleShape2D_hj2de")
 [node name="Door_Hitbox" type="Area2D" parent="House6" unique_id=1646179524]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="House6/Door_Hitbox" unique_id=1536390824]
-position = Vector2(1, 103)
+position = Vector2(-1, 96)
 shape = SubResource("RectangleShape2D_envn2")
 
 [node name="key" type="StaticBody2D" parent="House6" unique_id=49701214]
@@ -1054,6 +1053,7 @@ offset_left = 164.0
 offset_top = 119.0
 offset_right = 552.0
 offset_bottom = 150.0
+text = "idk"
 placeholder_text = "[Enter your name]"
 max_length = 16
 emoji_menu_enabled = false
@@ -1093,6 +1093,12 @@ shape = SubResource("SegmentShape2D_8desx")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="worldborder" unique_id=1929849905]
 position = Vector2(1174, -11)
 shape = SubResource("SegmentShape2D_3r65y")
+
+[node name="InitialSpawn" type="Marker2D" parent="." unique_id=1881443770]
+position = Vector2(525, 634)
+
+[node name="TavernOutsideSpawn" type="Marker2D" parent="." unique_id=868058500]
+position = Vector2(801, 329)
 
 [connection signal="body_entered" from="Tavern/door" to="Tavern" method="_on_door_body_entered"]
 [connection signal="body_exited" from="Tavern/door" to="Tavern" method="_on_door_body_exited"]

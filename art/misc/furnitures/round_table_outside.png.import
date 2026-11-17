@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhqf41uqg1exo"
-path="res://.godot/imported/tavern_wall_top.png-c80258c65ad47f6c0a33f34d2f9f6c0e.ctex"
+uid="uid://c4ya3wo7kgnr6"
+path="res://.godot/imported/round_table_outside.png-279294c599c8b28d09afe73997765737.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/buildings/tavern_wall_top.png"
-dest_files=["res://.godot/imported/tavern_wall_top.png-c80258c65ad47f6c0a33f34d2f9f6c0e.ctex"]
+source_file="res://art/misc/furnitures/round_table_outside.png"
+dest_files=["res://.godot/imported/round_table_outside.png-279294c599c8b28d09afe73997765737.ctex"]
 
 [params]
 
